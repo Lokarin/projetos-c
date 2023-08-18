@@ -12,7 +12,7 @@ float bitola(float corrente) {
 	printf("\nArea do Cobre: %f cm²\n",area);
 
 	float diametroCobre = (sqrt((area / M_PI))) * 2;
-	printf("Diametro do Cobre: %f\n",diametroCobre);
+	printf("Diametro do Cobre: %f cm\n",diametroCobre);
 
 	return 0;
 }
