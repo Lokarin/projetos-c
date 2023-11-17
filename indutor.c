@@ -6,19 +6,17 @@ float indutancia, diametro, corrente, awg = 0;
 int camada = 0;
 
 // Area e diametro do cobre
-float bitola(float corrente) {
+void bitola(float corrente) {
 	// Calculo da area e diametro di cobre
 	float area = (corrente / 1000) / 420;
 	printf("\nArea do Cobre: %f cm²\n",area);
 
 	float diametroCobre = (sqrt((area / M_PI))) * 2;
 	printf("Diametro do Cobre: %f cm\n",diametroCobre);
-
-	return 0;
 }
 
 // Calcular eq de segundo grau
-float eqSegundoGrau(float indutancia, float diametro, float awg, int camada){
+void eqSegundoGrau(float indutancia, float diametro, float awg, int camada){
 	double a, b, c, r1, r2, delta, l;
 
 	// coeficientes
@@ -66,8 +64,6 @@ float eqSegundoGrau(float indutancia, float diametro, float awg, int camada){
 		printf("Sem raizes reais");
 		printf("\ndelta: %f\n",delta);
 	}
-	
-	return 0;
 }
 
 int main() {

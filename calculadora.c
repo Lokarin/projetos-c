@@ -5,7 +5,7 @@
 float n1, n2, out = 0;
 int op = 0;
 
-float oper(int op, float n1, float n2) {
+void oper(int op, float n1, float n2) {
 	if (op == 1) {
 		out = n1 + n2;
 	} 
@@ -18,8 +18,7 @@ float oper(int op, float n1, float n2) {
 	else if (op == 4) {
 		out = n1 / n2;
 	}
-	printf("%.2f \n",out);
-	return 0;
+	printf("%do. \n",out);
 }
 
 int main() {

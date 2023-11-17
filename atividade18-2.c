@@ -2,7 +2,7 @@
 
 int quantidade, escolha = 0;
 
-int cozinha(int escolha, int quantidade) {
+void cozinha(int escolha, int quantidade) {
 	float preco = 0;
 	switch (escolha) {
 		case 100:
@@ -54,8 +54,6 @@ Preco total: R$%.2f\n",quantidade,preco);
 Preco total: R$%.2f\n",quantidade,preco);
 		break;
 	}
-
-	return 0;
 }
 
 int main() {
