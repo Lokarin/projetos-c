@@ -7,7 +7,7 @@ int camada = 0;
 
 // Area e diametro do cobre
 void bitola(float corrente) {
-	// Calculo da area e diametro di cobre
+	// Calculo da area e diametro do cobre
 	float area = (corrente / 1000) / 420;
 	printf("\nArea do Cobre: %f cm²\n",area);
 
