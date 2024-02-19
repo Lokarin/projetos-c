@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct data
+{
+    char local[50];
+    int hora,min;
+    float tensao;
+};
+
+int main()
+{
+    struct data *info;
+    FILE *file;
+    char path[50];
+    //printf("Digite o caminho para o arquivo:");
+    //fgets(path,50,stdin);
+    //path[strlen(path) - 1] = '\0';
+    //fflush(stdin);
+
+    file = fopen("dados.csv","r");
+    if(file == NULL)
+    {
+        printf("Não foi possivel abrir o arquivo!");
+        getchar();
+        return 0;
+    }
+    char buffer[50];
+    int count = 0, i = 0;
+    //conta numero de linhas do arquivo
+    while(fgets(buffer,50,file) != 0)
+    	count++;
+    info=(struct data *)malloc(sizeof(struct data)*count);
+
+    // ignora uma linha (cabeçalho)
+    count--;
+
+    rewind(file);
+    //ignora primeria linha
+    fgets(buffer,50,file);
+    printf("\n");
+    puts("------------------------");
+    //inicio do processamento
+    while(fgets(buffer,50,file) != 0 && i < count)
+    {
+
+    sscanf(buffer, "%d;%d;%f;%s\n",&info->hora,&info->min,&info->tensao,info->local);
+    	i++;
+
+    printf("Hora: %d\n",info->hora);
+    printf("Minuto: %d\n",info->min);
+    printf("Tensao: %.2f\n",info->tensao);
+    puts(info->local);
+    puts("------------------------");
+    }
+    fclose(file);
+    system("pause");
+    return 0;
+}
