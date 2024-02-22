@@ -8,7 +8,7 @@ void reorder(int *x) {
 		puts("Numeros iguais (0)");
 	
 	} else {
-		puts("Numeros diferentes: ");
+		puts("\nNumeros diferentes (1)");
 		puts("Numeros iniciais: ");
 		for (int i = 0; i < 3; i++) {
 			printf("%c: %i\n",('a'+i),x[i]);
@@ -36,7 +36,7 @@ int main() {
 	int valores[3];
 
 	for (int i=0; i<3; i++) {
-		printf("Valor de %c: ",'a'+0);
+		printf("Valor de %c: ",'a'+i);
 		scanf("%i",&valores[i]);
 	}
 
