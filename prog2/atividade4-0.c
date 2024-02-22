@@ -22,7 +22,7 @@ typedef struct quadrilatero {
 } Quadrilatero;
 
 float calcArea(Quadrilatero *x) {
-	float area = 0.5 * ((x->vA.x*x->vB.y)+(x->vB.x*x->vC.y)+(x->vC.x*x->vD.y)-(x->vB.x*x->vA.y)-(x->vC.x*x->vB.y)-(x->vD.x*x->vC.y)-(x->vA.x*x->vC.y));
+	float area = 0.5 * fabs((x->vA.x*x->vB.y)+(x->vB.x*x->vC.y)+(x->vC.x*x->vD.y)-(x->vB.x*x->vA.y)-(x->vC.x*x->vB.y)-(x->vD.x*x->vC.y)-(x->vA.x*x->vC.y));
 	return area;
 }
 
