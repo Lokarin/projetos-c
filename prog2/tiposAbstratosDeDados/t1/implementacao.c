@@ -73,28 +73,100 @@ void somaMatrizes(Matrizes *a, int n) {
 		}
 	}
 
-	// Print resultados
+	printResult(a, n);
+}
+
+void multiMatrizes(Matrizes *a, int n) {
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			a->res[i][j] = 0;
+			
+			for (int k = 0; k < n; k++) {
+				a->res[i][j] += a->m1[i][k] * a->m2[k][j];
+			}
+		}
+	}
+
+	printResult(a, n);
+}
+
+// Print resultados
+void printResult(Matrizes *a, int n) {
 	puts("");
 	for (int i = 0; i< n; i++) {
 		printf("|");
 		for (int j = 0; j < n; j++) {
-
-			printf(" %.2f ",a->m1[i][j]);
+			printf("\t%.2f\t",a->m1[i][j]);
 		}
 
 		printf("|    +    |");
 
 		for (int j = 0; j < n; j++) {
-			printf(" %.2f ",a->m2[i][j]);
+			printf("\t%.2f\t",a->m2[i][j]);
 		}
 
 		printf("|    =    |");
 
 		for (int j = 0; j < n; j++) {
-			printf(" %.2f ",a->res[i][j]);
+			printf("\t%.2f\t",a->res[i][j]);
 		}
 
 		puts("|");
+	}
+}
+
+// Menu
+void menu() {
+	int x = 9, n = 0;
+	Matrizes *a; 
+
+	while (x != 0) {
+		printf("Voce deseja somar ou multiplicar estas matrizes:\n\
+		1 - Somar\n\
+		2 - Multiplicar\n\
+		0 - Sair do progama\n\
+Opcao: "	);
+		scanf("%i",&x);
+
+
+		switch (x) {
+			case 1:
+				// Definir tamanho da matriz
+				printf("Numero de linhas/colunas das matrizes quadradas: ");
+				scanf("%i",&n);
+
+				// Cria matriz
+				a = criarMatriz(n);
+
+				// Preencher
+				preencherMatrizM1(a, n);
+				preencherMatrizM2(a, n);
+
+				// Chama operacao
+				somaMatrizes(a, n);
+
+				freeMatrizes(a, n);
+			break;
+			case 2:
+				// Definir tamanho da matriz
+				printf("Numero de linhas/colunas das matrizes quadradas: ");
+				scanf("%i",&n);
+
+				// Cria matriz
+				a = criarMatriz(n);
+
+				// Preencher
+				preencherMatrizM1(a, n);
+				preencherMatrizM2(a, n);
+
+				// Chama operacao
+				multiMatrizes(a, n);
+
+				freeMatrizes(a, n);
+			break;
+			case 0:
+			break;
+		}
 	}
 }
 
