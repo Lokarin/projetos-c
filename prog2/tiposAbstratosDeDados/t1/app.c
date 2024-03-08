@@ -14,7 +14,6 @@ int main() {
 	somaMatrizes(a, n);
 
 
-
 	freeMatrizes(a, n);
 	return 0;
 }
