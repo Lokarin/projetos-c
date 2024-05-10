@@ -1,4 +1,4 @@
-	// Interface Publica
+// Interface Publica
 
 typedef struct jogador Jogador;
 
